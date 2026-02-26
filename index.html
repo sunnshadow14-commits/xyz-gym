@@ -1,47 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>XYZ Gym</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XYZ Fitness Club</title>
+
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #111;
-  color: white;
-  text-align: center;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+scroll-behavior:smooth;
 }
 
-header {
-  background: #e10600;
-  padding: 20px;
-  font-size: 28px;
-  font-weight: bold;
+body{
+background: linear-gradient(to right, #000000, #0f2027);
+color:white;
 }
 
-section {
-  padding: 50px 20px;
+header{
+background:black;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
-button {
-  background: #e10600;
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 5px;
+header h1{
+color:#00f7ff;
 }
 
-button:hover {
-  background: white;
-  color: #e10600;
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+transition:0.3s;
 }
 
-footer {
-  background: #222;
-  padding: 20px;
-  margin-top: 30px;
+nav a:hover{
+color:#00f7ff;
+}
+
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74');
+background-size:cover;
+background-position:center;
+}
+
+.hero h2{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.hero button{
+padding:15px 30px;
+border:none;
+background:#00f7ff;
+color:black;
+font-size:18px;
+cursor:pointer;
+border-radius:5px;
+transition:0.3s;
+}
+
+.hero button:hover{
+background:#00c3cc;
+transform:scale(1.05);
+}
+
+section{
+padding:80px 10%;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+color:#00f7ff;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:#111;
+padding:30px;
+border-radius:10px;
+text-align:center;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:#1c1c1c;
+}
+
+.pricing .card{
+border:2px solid #00f7ff;
+}
+
+.price{
+font-size:28px;
+margin:15px 0;
+color:#00ff99;
+}
+
+form{
+display:flex;
+flex-direction:column;
+max-width:500px;
+margin:auto;
+gap:15px;
+}
+
+input, select{
+padding:12px;
+border:none;
+border-radius:5px;
+}
+
+button.submit-btn{
+background:#00ff99;
+color:black;
+padding:15px;
+border:none;
+cursor:pointer;
+font-size:16px;
+border-radius:5px;
+transition:0.3s;
+}
+
+button.submit-btn:hover{
+background:#00cc7a;
+}
+
+footer{
+background:black;
+text-align:center;
+padding:20px;
+margin-top:40px;
 }
 </style>
 </head>
@@ -49,18 +159,96 @@ footer {
 <body>
 
 <header>
-XYZ GYM
+<h1>XYZ Fitness Club</h1>
+<nav>
+<a href="#about">About</a>
+<a href="#equipment">Equipment</a>
+<a href="#pricing">Pricing</a>
+<a href="#training">Training</a>
+<a href="#join">Join</a>
+</nav>
 </header>
 
-<section>
-<h1>Transform Your Body</h1>
-<p>Join XYZ Gym and start your fitness journey today.</p>
-<button>Join Now</button>
+<div class="hero">
+<h2>Transform Your Body. Transform Your Life.</h2>
+<button onclick="document.getElementById('join').scrollIntoView()">Join Now</button>
+</div>
+
+<section id="about">
+<h2>About Us</h2>
+<p style="text-align:center; max-width:700px; margin:auto;">
+XYZ Fitness Club is a premium training facility designed for serious fitness lovers. 
+We provide world-class equipment, certified trainers, structured workout programs 
+and a motivating environment to help you reach your goals faster.
+</p>
+</section>
+
+<section id="equipment">
+<h2>Our Equipment</h2>
+<div class="cards">
+<div class="card">Treadmills & Cardio Machines</div>
+<div class="card">Free Weights & Dumbbells</div>
+<div class="card">Strength Training Machines</div>
+<div class="card">CrossFit & Functional Area</div>
+</div>
+</section>
+
+<section id="pricing" class="pricing">
+<h2>Membership Plans</h2>
+<div class="cards">
+<div class="card">
+<h3>Monthly Plan</h3>
+<div class="price">₹1,999</div>
+<p>Full gym access</p>
+</div>
+
+<div class="card">
+<h3>Quarterly Plan</h3>
+<div class="price">₹4,999</div>
+<p>Save more + Free Diet Plan</p>
+</div>
+
+<div class="card">
+<h3>Yearly Plan</h3>
+<div class="price">₹14,999</div>
+<p>Best Value + 2 PT Sessions Free</p>
+</div>
+</div>
+</section>
+
+<section id="training">
+<h2>Personal Training</h2>
+<p style="text-align:center; max-width:700px; margin:auto;">
+Our certified trainers provide customized workout routines, 
+fat-loss programs, muscle-building plans and competition prep coaching.
+</p>
+</section>
+
+<section id="join">
+<h2>Join Now</h2>
+
+<form action="https://formspree.io/f/xlgwzaaqij" method="POST">
+
+<input type="text" name="name" placeholder="Full Name" required>
+
+<input type="email" name="email" placeholder="Email Address" required>
+
+<select name="plan" required>
+<option value="">Select Plan</option>
+<option>Monthly Plan</option>
+<option>Quarterly Plan</option>
+<option>Yearly Plan</option>
+</select>
+
+<button type="submit" class="submit-btn">Submit</button>
+
+</form>
+
 </section>
 
 <footer>
-© 2026 XYZ Gym. All Rights Reserved.
+<p>© 2026 XYZ Fitness Club | All Rights Reserved</p>
 </footer>
 
 </body>
-</html>
+  </html>
